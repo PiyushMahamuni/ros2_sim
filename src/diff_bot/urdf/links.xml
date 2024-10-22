@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="diff_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="materials.xml" />
+
+	<link name="chassis_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Chassis.stl" />
+			</geometry>
+			<material name="teal" />
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Chassis.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="${2.76 / 1000} 0 ${24.664 / 1000}" />
+			<mass value="1.674" />
+			<inertia ixx="0.00330292" ixy="0.000000001" ixz="0.000150872"
+				iyy="0.005853202" iyz="0" izz="0.008250538" />
+		</inertial>
+	</link>
+
+	<link name="right_wheel_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Wheel.stl" />
+			</geometry>
+			<material name="grey" />
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Wheel.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0 0 0" />
+			<mass value="0.03" />
+			<inertia ixx="0.000005" ixy="0" ixz="0"
+				iyy="0.000009064" iyz="0" izz="0.000005" />
+		</inertial>
+	</link>
+
+	<link name="left_wheel_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Wheel.stl" />
+			</geometry>
+			<material name="grey" />
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Wheel.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0 0 0" />
+			<mass value="0.03" />
+			<inertia ixx="0.000005" ixy="0" ixz="0"
+				iyy="0.000009064" iyz="0" izz="0.000005" />
+		</inertial>
+	</link>
+
+	<link name="lidar_link">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Lidar.stl" />
+			</geometry>
+			<material name="purple" />
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Lidar.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0 0 0" />
+			<mass value="0.114" />
+			<inertia ixx="0.000045603" ixy="0" ixz="0"
+				iyy="0.000045603" iyz="0" izz="0.000079502" />
+		</inertial>
+	</link>
+
+	<link name="camera_link">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Camera.stl" />
+			</geometry>
+			<material name="orange" />
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find diff_bot)/mesh/Camera.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0.004002 0 0" />
+			<mass value="0.05" />
+			<inertia ixx="0.000002401" ixy="0" ixz="0"
+				iyy="0.000001172" iyz="0" izz="0.000001827" />
+		</inertial>
+	</link>
+
+</robot>

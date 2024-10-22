@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<robot name="diff_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<joint name="right_wheel_joint" type="continuous">
+		<parent link="chassis_link" />
+		<child link="right_wheel_link" />
+		<origin rpy="0 0 0" xyz="${-67 / 1000} ${-89 / 1000} ${8 / 1000}" />
+		<axis xyz="0 1 0" />
+	</joint>
+
+	<joint name="left_wheel_joint" type="continuous">
+		<parent link="chassis_link" />
+		<child link="left_wheel_link" />
+		<origin rpy="0 0 0" xyz="${-67 / 1000} ${89 / 1000} ${8 / 1000}" />
+		<axis xyz="0 1 0" />
+	</joint>
+
+	<joint name="lidar_joint" type="fixed">
+		<parent link="chassis_link" />
+		<child link="lidar_link" />
+		<origin rpy="0 0 0" xyz="0 0 ${77.5 / 1000}" />
+	</joint>
+
+	<joint name="camera_joint" type="fixed">
+		<parent link="chassis_link" />
+		<child link="camera_link" />
+		<origin rpy="0 0 0" xyz="${93 / 1000} 0 ${20 / 1000}" />
+	</joint>
+
+</robot>

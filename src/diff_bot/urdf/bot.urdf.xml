@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="diff_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="links.xml" />
+	<xacro:include filename="joints.xml" />
+</robot>

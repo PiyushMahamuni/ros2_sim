@@ -1,0 +1,2 @@
+source /opt/ros/$ROS_DISTRO/setup.bash
+source /usr/share/colcon_cd/function/colcon_cd-argcomplete.bash

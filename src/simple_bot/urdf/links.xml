@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<robot name="bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="materials.xml" />
+
+	<link name="map" />
+
+	<xacro:property name="b_x" value="2.5" />
+	<xacro:property name="b_y" value="1.5" />
+	<xacro:property name="b_z" value="0.1" />
+	<link name="base_link">
+		<visual>
+			<origin xyz="0 0 ${b_z / 2}" rpy="0 0 0" />
+			<geometry>
+				<box size="${b_x} ${b_y} ${b_z}" />
+			</geometry>
+			<material name="green" />
+		</visual>
+		<collision>
+			<origin xyz="0 0 ${b_z / 2}" rpy="0 0 0" />
+			<geometry>
+				<box size="${b_x} ${b_y} ${b_z}" />
+			</geometry>
+		</collision>
+	</link>
+
+	<xacro:property name="s_x" value="0.2" />
+	<xacro:property name="s_y" value="0.06" />
+	<xacro:property name="s_z" value="0.06" />
+	<link name="slider_link">
+		<visual>
+			<origin xyz="0 0 ${s_z / 2}" />
+			<geometry>
+				<box size="${s_x} ${s_y} ${s_z}" />
+			</geometry>
+			<material name="blue" />
+		</visual>
+		<collision>
+			<origin xyz="0 0 ${s_z / 2}" />
+			<geometry>
+				<box size="${s_x} ${s_y} ${s_z}" />
+			</geometry>
+		</collision>
+	</link>
+
+	<xacro:property name="a_l" value="0.6" />
+	<xacro:property name="a_r" value="0.025" />
+	<link name="arm_link">
+		<visual>
+			<origin rpy="0 ${pi / 2} 0" xyz="${a_l / 2} 0 0" />
+			<geometry>
+				<cylinder length="${a_l}" radius="${a_r}" />
+			</geometry>
+			<material name="red" />
+		</visual>
+		<collision>
+			<origin rpy="0 ${pi / 2} 0" xyz="${a_l / 2} 0 0" />
+			<geometry>
+				<cylinder length="${a_l}" radius="${a_r}" />
+			</geometry>
+		</collision>
+	</link>
+
+	<xacro:property name="c_w" value="0.06" />
+	<xacro:property name="c_h" value="0.06" />
+	<xacro:property name="c_b" value="0.03" />
+	<link name="camera_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="${c_b} 0 0" />
+			<geometry>
+				<box size="${c_b} ${c_w} ${c_h}" />
+			</geometry>
+			<material name="white" />
+		</visual>
+		<visual>
+			<origin rpy="0 ${pi / 2} 0" xyz="${c_b * 1.5} 0 0" />
+			<geometry>
+				<cylinder length="${c_b}" radius="${c_w / 2}" />
+			</geometry>
+			<material name="white" />
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="-${c_b} 0 0" />
+			<geometry>
+				<box size="${2 * c_b} ${c_w} ${c_h}" />
+			</geometry>
+		</collision>
+	</link>
+
+</robot>
