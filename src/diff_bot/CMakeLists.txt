@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(xacro REQUIRED)
 find_package(robot_state_publisher REQUIRED)
 find_package(ros_gz_bridge REQUIRED)
+find_package(ros_gz_sim REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
