@@ -33,3 +33,4 @@ ENV NVIDIA_VISIBLE_DEVICES=all
 COPY bashrc /root/bashrc
 RUN cat /root/bashrc >> /root/.bashrc
 # USER ubuntu
+COPY bashrc /home/ubuntu/.bashrc
