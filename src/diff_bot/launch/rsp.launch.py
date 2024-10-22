@@ -13,6 +13,6 @@ def generate_launch_description():
     urd = Command(['xacro ', urdf_file])
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_sim_time_arg = DeclareLaunchArgument('use_sim_time', default_value='false', description='Sync with sim time if true')
-    params={'robot_description': urd, 'use_sim_time': use_sim_time}
+    params={'robot_description': urd, 'use_sim_time': use_sim_time, 'publish_rate': '50.0'}
     rsp = Node(package='robot_state_publisher', executable='robot_state_publisher', output='screen', parameters=[params])
     return LaunchDescription([urdf_filename_arg, use_sim_time_arg, rsp])
